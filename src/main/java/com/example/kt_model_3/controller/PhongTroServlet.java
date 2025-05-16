@@ -35,7 +35,8 @@ public class PhongTroServlet extends HttpServlet {
             case "view":
 //                showDetail(request, response);
                 break;
-            case "delete":
+            case "detail":
+                 showDetail(request, response);
                 break;
             case "update":
                 break;
@@ -45,13 +46,13 @@ public class PhongTroServlet extends HttpServlet {
         }
     }
 
-//    private void showDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        int id = Integer.parseInt(request.getParameter("id"));
-//        PhongTro phongTro = phongTroDAO.findById(id);
-//        request.setAttribute("phongTro", phongTro);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("views/detail.jsp");
-//        dispatcher.forward(request, response);
-//    }
+   private void showDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       int id = Integer.parseInt(request.getParameter("id"));
+       PhongTro phongTro = phongTroDAO.findById(id);
+       request.setAttribute("phongTro", phongTro);
+       RequestDispatcher dispatcher = request.getRequestDispatcher("views/detail.jsp");
+       dispatcher.forward(request, response);
+   }
 
     private void showFormAdd(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/add.jsp");
